@@ -10,48 +10,48 @@
   <main class="app">
     <section id="startScreen" class="screen card">
       <h1>Nolan Spotter</h1>
-      <p class="subtitle">First to shout Nolan scores. False calls lose 10 points.</p>
-
+      <p class="subtitle">First to shout Nolan scores. Mistakes lose 10 points.</p>
+      <div id="bestScoreStart" class="best-score">Best Ever Score: 0</div>
       <label for="player1Name">Player 1</label>
       <input id="player1Name" placeholder="Player 1 name">
-
       <label for="player2Name">Player 2</label>
       <input id="player2Name" placeholder="Player 2 name">
-
       <button class="primary" onclick="startGame(false)">Start Game - Continue Scores</button>
       <button class="secondary" onclick="startGame(true)">Start Game - Reset Scores</button>
+      <button class="history-button" onclick="showHistory()">View Game History</button>
     </section>
-
     <section id="gameScreen" class="screen" style="display:none;">
       <h1>Nolan Spotter</h1>
-      <div id="animationLane" class="animation-lane" aria-live="polite"></div>
-
-      <div class="players">
-        <article class="player">
-          <h2 id="p1Label"></h2>
-          <div id="score1" class="score">0</div>
-          <button class="score-button good" onclick="addPoint(1)">+1 Nolan</button>
-          <button class="score-button bad" onclick="badCall(1)">-10 False Call</button>
-        </article>
-
-        <article class="player">
-          <h2 id="p2Label"></h2>
-          <div id="score2" class="score">0</div>
-          <button class="score-button good" onclick="addPoint(2)">+1 Nolan</button>
-          <button class="score-button bad" onclick="badCall(2)">-10 False Call</button>
-        </article>
-      </div>
-
+      <div id="leaderBanner" class="leader-banner">Current Leader: Draw</div>
+      <div id="bestScoreGame" class="best-score">Best Ever Score: 0</div>
+      <article id="player1Card" class="player">
+        <h2 id="p1Label"></h2>
+        <div id="score1" class="score">0</div>
+        <button class="score-button good" onclick="addPoint(1)">+1 Nolan</button>
+        <button class="score-button bad" onclick="badCall(1)">-10 False Call</button>
+      </article>
+      <div id="animationLane" class="animation-lane"></div>
+      <article id="player2Card" class="player">
+        <h2 id="p2Label"></h2>
+        <div id="score2" class="score">0</div>
+        <button class="score-button good" onclick="addPoint(2)">+1 Nolan</button>
+        <button class="score-button bad" onclick="badCall(2)">-10 False Call</button>
+      </article>
       <button class="end-button" onclick="endGame()">End Game</button>
     </section>
-
     <section id="endScreen" class="screen card" style="display:none;">
       <h1>Game Ended</h1>
       <p id="finalScore" class="final-score"></p>
+      <div id="bestScoreEnd" class="best-score">Best Ever Score: 0</div>
       <button class="primary" onclick="showStart()">New Game</button>
+      <button class="history-button" onclick="showHistory()">View Game History</button>
+    </section>
+    <section id="historyScreen" class="screen card" style="display:none;">
+      <h1>Game History</h1>
+      <div id="historyList" class="history-list"></div>
+      <button class="secondary" onclick="showStart()">Back to Start</button>
     </section>
   </main>
-
   <script src="app.js"></script>
 </body>
 </html>
