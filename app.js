@@ -12,7 +12,7 @@ function hideAll(){
 function vehicle(type){
   const lane=document.getElementById('animationLane');
   const police=type==='police';
-  lane.innerHTML=`<div class="vehicle ${police?'police':'nolan-truck'}"><div class="${police?'light':''}"></div><div class="truck-cab"></div><div class="truck-body">${police?'POLICE':'NOLAN'}</div><div class="wheel w1"></div><div class="wheel w2"></div></div>`;
+  lane.innerHTML=`<div class="vehicle ${police?'police':'nolan-truck'}"><div class="${police?'light':''}"></div><div class="truck-cab"></div><div class="truck-body">${police?'DEXTER':'NOLAN'}</div><div class="wheel w1"></div><div class="wheel w2"></div></div>`;
   setTimeout(()=>lane.innerHTML='',1900);
 }
 
